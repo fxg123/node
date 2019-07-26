@@ -1,0 +1,28 @@
+<!-- 存档 -->
+{{include './header.html'}}
+<div class="archive  container">
+    <form action="/archive" method="get">
+        <div class="archive_msg">
+            {{each msg m}}
+            {{ if lastYear != m.time.year }}
+            <h4>{{ lastYear = m.time.year }}</h4>
+            {{/if}}
+            <ul>
+                <li><span> {{m.time.minute}} </span> | <a href="/detail/{{m._id}}"> {{m.title}} </a>
+                    <a href="/detail/{{m._id}}"> {{m.author.username}} </a>
+                </li>
+            </ul>
+            {{/each}}
+        </div>
+        <div id="page">
+            {{if page!=1}}
+            <a href="?page={{page-1}}">上一页</a>
+            {{/if}}
+            <span>第{{page}}/{{allPages}}页</span>
+            {{if page!=allPages}}
+            <a href="?page={{page+1}}">下一页</a>
+            {{/if}}
+        </div>
+    </form>
+</div>
+{{include './footer.html'}}

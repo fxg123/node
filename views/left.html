@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="left">
+        {{ if user}}
+        <div class="about-me">
+            <h4>关于我</h4>
+            <ul>
+                <p class="individual_right">
+                    <img src="{{user.chatheads}}" alt="">
+                    <span class="">
+                        <span style="font-weight: bold">{{user.username}}</span>
+                        <br>
+                        {{user.individual}}
+                    </span>
+                </p>
+            </ul>
+        </div>
+        <div class="about-myphoto">
+            <h4>个人相册</h4>
+            <ul>
+                <li><img src="/img/02.jpeg" alt=""></li>
+                <li><img src="/img/06.jpeg" alt=""></li>
+                <li><img src="/img/07.jpeg" alt=""></li>
+            </ul>
+        </div>
+        {{/if}}
+        <div class="antistop">
+            <form action="/search" method="get">
+                <input class="search" type="text" name="keyword" id="" placeholder="请输入关键字">
+                <input class="btn-search" type="submit" name="search" id="" value="搜索">
+            </form>
+        </div>
+        {{ if user}}
+        <div class="follow_me">
+            <h4>关注我</h4>
+            <ul>
+                <img class="QR_code" src="/img/二维码.png" alt="">
+            </ul>
+        </div>
+        {{/if}}
+    </div>

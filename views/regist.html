@@ -1,0 +1,39 @@
+{{include './header.html'}}
+<!-- 注册 -->
+<div class="container">
+    <div class="regist">
+        <form action="/regist" method="post">
+            <ul>
+                <li>
+                    <label>用户：</label>
+                    <input type="text" name="username" required>
+                </li>
+                <li>
+                    <label>密码：</label>
+                    <input type="password" name="password" required>
+                </li>
+                <li>
+                    <label>确认密码：</label>
+                    <input type="password" name="repassword" required>
+                </li>
+                <li><label>生日：</label>
+                    <input type="date" name="birthday" id=""></li>
+                <li>
+                    <label>性别：</label>
+                    <label><input type="radio" name="gender" id="" value="保密">保密</label>
+                    <label><input type="radio" name="gender" id="" value="男">男</label>
+                    <label><input type="radio" name="gender" id="" value="女">女</label>
+                </li>
+                <li>
+                    <label>邮箱：</label><input type="email" name="email" id="">
+                </li>
+                <li>
+                    <label>简介:</label><br>
+                    <textarea name="individual" id="" cols="50" rows="5" style="resize: none;"></textarea>
+                </li>
+                <button type="submit">注册</button> <button type="reset">重置</button><span class="error">{{ error }}</span>
+            </ul>
+        </form>
+    </div>
+</div>
+{{include './footer.html'}}

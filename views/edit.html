@@ -1,0 +1,32 @@
+{{include './header.html'}}
+<div class="edit">
+    <form action="/edit/{{msgs._id}}" method="post">
+        <!-- <input type="text" hidden name="_id"> -->
+        <article>
+            {{include './left.html'}}
+            <div class="edit right">
+                <ul>
+                    <li>
+                        <label>标题：</label>
+                        <input type="text" name="title" value="{{msgs.title}}">
+                    </li>
+                    <li>
+                        <label>标签：</label>
+                        <input type="text" name="labels" value="{{msgs.labels[0]}}">
+                        <input type="text" name="labels" value="{{msgs.labels[1]}}">
+                        <input type="text" name="labels" value="{{msgs.labels[2]}}">
+
+                    </li>
+                    <li>
+                        <p>内容：</p>
+                        <textarea name="content" cols="70" rows="10" required>{{msgs.content}}</textarea>
+                    </li>
+                    <li>
+                        <button type="submit" class="">保存</button> <span class="error">{{error}}</span>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </form>
+</div>
+{{include './footer.html'}}

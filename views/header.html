@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-sub">
+                <ul>
+                    <li><a href="javascript:;"><span>BLOG</span></a></li>
+                    <li class="nav-list"><a href="/">首页</a></li>
+                    <li class="nav-list"><a href="/archive">存档</a></li>
+                    <li class="nav-list"><a href="/tally">标签</a></li>
+                    <li class="nav-list"><a href="/release">发布</a></li>
+                    
+                    <li class="img-photo"><a href="/personlInfo"> <img src="{{chatheads}}" ></a></li>
+                    {{if user}}
+                    <li class="logout">
+                        <a class="user" href="/personalInfo">{{user.username}}</a>
+                        <a href="/logout">退出登录</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-list"><a href="/login">登录</a></li>
+                    <li class="nav-list"><a href="/regist">注册</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>

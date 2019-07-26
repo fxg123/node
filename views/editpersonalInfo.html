@@ -1,0 +1,26 @@
+{{include './header.html'}}
+<div class="container ">
+        <div id="edit-headerimg">
+                <form action="/upload/header" method="post" enctype="multipart/form-data">
+                    <div class="">
+                        <img class="head-img" src="{{user.chatheads}}" alt="">
+
+                        <li><span class="edit-img">选择头像</span></li>
+                        <input type="file" name="chatheads" id="headimg" accept="image/*" hidden>
+                    </div>
+                    <button type="submit">修改</button>
+                </form>
+            </div> 
+
+        </div>
+            <script>
+            document.querySelector('.edit-img').onclick = function(){
+               
+                document.querySelector('#headimg').click();
+            };
+            document.querySelector('#headimg').onchange = function(){
+                var file = this.files[0];
+                document.querySelector('.head-img').src = URL.createObjectURL(file);
+            }
+        </script>
+{{include './footer.html'}}

@@ -1,0 +1,59 @@
+{{include './header.html'}}
+<div class="detail">
+    <form action="/detail/{{msgs._id}}" method="get">
+        <!-- <input  type="text" hidden name="_id"> -->
+        <article>
+            {{include './left.html'}}
+            <div class="right">
+                <div class="msg">
+                    <p>作者：<a>{{msgs.author.username}}</a> | 日期：{{msgs.time.second}} | 标签：{{each msgs.labels la}}<a
+                            class="labels">{{la.toString()}}</a>{{/each}}</p>
+                    <p><a class="article_list">{{msgs.content}}</a>
+                    </p>
+                    <p><span>阅读{{msgs.count}} 次</span> | 评论：{{msgs.reples.length}}</p>
+                    {{if user}}
+                    {{ if user.username == msgs.author.username}}
+                    <a href="/edit/{{msgs._id}}">编辑</a>
+                    <a href="/delete/{{msgs._id}}" class="del">删除</a>
+                    {{/if}}
+                    {{/if}}
+                </div>
+                <div>
+                    <p>评论：</p>
+                    {{each msgs.reples rp}}
+                    <p><a>{{rp.username}}</a> 回复于：<span>{{rp.time.second}}</span></p>
+                    <p class="article_list">{{rp.content}}</p>
+                    {{/each}}
+
+                    {{ if user}}
+                    <form action="/reply/{{msgs._id}}" method="post">
+                        <input type="text" name="_id" value="{{msgs._id}}" hidden>
+                        <textarea name="content" id="reply" cols="70" rows="5" required>
+                            </textarea>
+                        <button type="submit">留言</button>
+                    {{/if}}
+                    </form>
+                </div>
+                <div id="page">
+                    {{if page!=1}}
+                    <a href="/?page={{page-1}}">上一页</a>
+                    {{/if}}
+                    <span>第{{page}}/{{allPages}}页</span>
+                    {{if page!=allPages}}
+                    <a href="/?page={{page+1}}">下一页</a>
+                    {{/if}}
+                </div>
+            </div>
+        </article>
+    </form>
+</div>
+<script>
+    var del = document.querySelector('.del')
+    del.onclick = function (ev) {
+        var delMsg = confirm('确认删除?');
+        if (!delMsg) {
+            return false
+        }
+    }
+</script>
+{{include './footer.html'}}

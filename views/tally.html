@@ -1,0 +1,14 @@
+<!-- 标签页面 -->
+{{include './header.html'}}
+<div class="tally container">
+<form action="/tally" method="get">
+    <div class="">
+            <ul>
+                {{each blog m }}
+                <sapn><a href="/detail/{{m._id}}">{{m.labels.join(' ')}}</span>
+                {{/each}}
+            </ul>                      
+        </div>
+</form>
+</div>
+{{include './footer.html'}}

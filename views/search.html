@@ -1,0 +1,24 @@
+{{include './header.html'}}
+<article>
+    {{include './left.html'}}
+    <div class="right">
+        <form action="/search" method="get">
+            {{mags.author.username}}
+        {{each mags m}}
+        <div class="msg">
+            <p><a href="/detail/{{m._id}}" name="keyword">{{m.title }}</a></p>
+            <p>作者：<a href="/detail/{{m._id}}" name="keyword">{{m.author.username}}</a> | 日期：{{m.time.second}} | 标签：{{each m.labels la}}</a>
+                <a href="/detail/{{m._id}}" class="labels" name="keyword">{{la}}</a>
+                {{/each}}</p>
+            <p>
+                <a href="/detail/{{m._id}}" class="article_list" name="keyword">{{m.content}}</a>
+            </p>
+        </div>
+        {{/each}}
+        </form>
+       
+    </div>
+    </div>
+</article>
+
+{{include './footer.html'}}

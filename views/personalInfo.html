@@ -1,0 +1,22 @@
+{{include './header.html'}}
+<div class="personalInfo">
+  <form action="/personalInfo" method="post">
+    <div class="container">
+      <ul>
+        <span>头像:</span>
+        <li class="headimg">
+          <img src="{{user.chatheads}}" alt="" srcset="">
+        </li>
+        <li>姓名：<a href="/editpersonalInfo/{{user._id}}">{{user.username}}</a></li>
+        <li>性别：{{user.gender}}</li>
+        <li>生日：{{tools.brdayFormat(user.birthday)}}</li>
+        <li>邮箱：{{user.email}}</li>
+        <li>个人介绍：</li>
+        <li>{{user.individual}}</li>
+        <li>
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>
+{{include './footer.html'}}

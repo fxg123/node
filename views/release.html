@@ -1,0 +1,29 @@
+{{include './header.html'}}
+{{ if user}}
+<div class="release container">
+    <form action="/release" method="post">
+        <div class="release-list">
+            <ul>
+                <li>
+                    <label>标题：</label>
+                    <input type="text" name="title">
+                </li>
+                <li>
+                    <label>标签：</label>
+                    <input type="text" name="labels">
+                    <input type="text" name="labels">
+                    <input type="text" name="labels">
+                </li>
+                <li>
+                    <p>内容：</p>
+                    <textarea name="content" cols="100" rows="10" required></textarea>
+                </li>
+                <li>
+                    <button type="submit" class="">发布</button> <span class="error">{{error}}</span>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+{{/if}}
+{{include './footer.html'}}
